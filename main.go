@@ -156,9 +156,6 @@ func main() {
 		log.Println(botQQ, packet.Content)
 	})
 
-	err = opqBot.AddEvent(OPQBot.EventNameOnGroupShut, func(botQQ int64, packet OPQBot.GroupShutPack) {
-		log.Println(botQQ, packet)
-	})
 	if err != nil {
 		log.Println(err.Error())
 	}
