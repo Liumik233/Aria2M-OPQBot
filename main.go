@@ -152,7 +152,7 @@ func main() {
 			}
 		}
 	})
-	err = opqBot.AddEvent(OPQBot.EventNameOnFriendMessage, func(botQQ int64, packet OPQBot.FriendMsgPack) {
+	err = opqBot.AddEvent(OPQBot.EventNameOnFriendMessage, func(botQQ int64, packet *OPQBot.FriendMsgPack) {
 		log.Println(botQQ, packet.Content)
 	})
 
