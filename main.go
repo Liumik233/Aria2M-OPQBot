@@ -8,7 +8,6 @@ import (
 	"log"
 	"os"
 	"strings"
-	"time"
 )
 
 var limit int //下载任务限制
@@ -181,7 +180,5 @@ func main() {
 	if err != nil {
 		log.Println(err.Error())
 	}
-	for true {
-		time.Sleep(1 * time.Hour)
-	}
+	opqBot.Wait()
 }
