@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -112,8 +111,11 @@ func main() {
 		}
 		if strings.HasPrefix(fileinfo.FileName, "addbt_") {
 			if limit <= 5 {
-				urlt := Getfile(packet.FromGroupID, fileinfo.FileID, strconv.FormatInt(conf1.Qq, 10), conf1.Site)
-				gid, err := ac1.Addbt(urlt)
+				_, urlt, err := opqBot.GetFile(fileinfo.FileID, packet.FromGroupID)
+				if err != nil {
+					log.Println(err)
+				}
+				gid, err := ac1.Addbt(urlt.URL)
 				if err != nil {
 					send2g(&opqBot, packet.FromGroupID, "error:"+err.Error())
 				} else {
